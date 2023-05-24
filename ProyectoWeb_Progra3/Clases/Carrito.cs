@@ -25,13 +25,24 @@ namespace Clases
             get { return monto;  }
         }
 
-        public void CalcularMonto()
+        public decimal CalcularMonto()
         {
             monto = 0;
             foreach (Articulo art in articulos)
             {
                 monto += art.Precio;
             }
+            return monto;
+        }
+
+        public bool QuitarArticulo(int id)
+        {
+            foreach (Articulo art in articulos)
+            {
+                if (art.Id == id) articulos.Remove(art);
+                return true;
+            }
+            return false;
         }
 
         ~Carrito()

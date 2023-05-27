@@ -14,9 +14,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <nav class="navbar bg-dark" data-bs-theme="dark">
+              <nav class="nav justify-content-center class="navbar bg-warning">
                 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                    <div class="container-fluid">
+                    <div class="navbar bg-warning" class="container-fluid">
                         <a class="navbar-brand" href="#">Inicio</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -37,9 +37,9 @@
                                     </ul>
                                 </li>
                             </ul>
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-2" type="search" placeholder="" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Buscar</button>
+                            <form class="d-flex" role="search" >
+                                <input class="form-control me-2" type="search" placeholder="" aria-label="search" >
+                                <button style:"color: yellow-300" class="btn btn-outline-success" type="submit">Buscar</button>
                             </form>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-            <footer>
+            <footer style:>
                 <hr />
                 Seguir aca
             </footer>

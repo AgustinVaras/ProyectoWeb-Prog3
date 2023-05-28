@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Clases
 {
-    class Carrito
+    public class Carrito
     {
         public Carrito(List<Articulo> lista) { articulos = lista; }
 

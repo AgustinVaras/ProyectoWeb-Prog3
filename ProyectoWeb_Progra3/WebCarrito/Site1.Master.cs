@@ -13,9 +13,11 @@ namespace WebCarrito
         public Carrito Carro { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
+            if (!IsPostBack)
             {
+                Articulo art = new Articulo();
                 Carro = new Carrito();
+                //Carro.Articulos.Add(art);
             }
         }
 

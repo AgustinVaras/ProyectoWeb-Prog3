@@ -19,7 +19,7 @@
          {   
                     width: 70%;
                     width: auto;
-                   /* margin: 0px auto; */
+                   /*margin: 0px auto;*/
                     
                     
          }
@@ -56,9 +56,9 @@
              list-style: none;
 
          }
-
+         
     </style>
-    
+
  
 
     <body>

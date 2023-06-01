@@ -99,9 +99,73 @@
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+           
+            
             <footer style:>
                 <hr />
-                Seguir aca el footer
+                
+                <div class="container-fluid">
+
+                    <div class="row p-3 bg-body-tertiary">
+
+                        <div class="col-lg-3">
+                            <p class="h2">Proyecto web</p>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <p class="h5">Medios de pago</p>
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png" alt="Visa" width="50" height="45"/>
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png" alt="mastercard" width="60" height="40"/>
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png" alt="Amex" width="60" height="40" />
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/pagofacil@2x.png" alt="Pagofacil" width="60" height="40" />
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/rapipago@2x.png" alt="Rapipago" width="60" height="40" />
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visadebit@2x.png" alt="Visadebito" width="60" height="40" />
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mercadopago@2x.png" alt="Mercadopago" width="60" height="40" />
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/santander@2x.png" alt="Santander" width="60" height="40" />
+                        </div>
+
+
+
+                        <div class="col-lg-3">
+
+                            <p class="h5">Contactanos</p>
+                            <div class="mb-2">
+                                <h6>47158212</h6>
+                            </div>
+                            <div class="mb-2">
+                                <h6>11328291245</h6>
+                            </div>
+                            <div class="mb-2">
+                                <h6>Contacto@Gmail.com</h6>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-lg-3">
+
+                            <p class="h5">Redes Sociales</p>
+                             <div class="mb-2">
+                                <a class="text-decoration-none" href="#">Facebook</a>
+                            </div>
+                             <div class="mb-2">
+                                <a class="text-decoration-none" href="#">Instagram</a>
+                            </div>
+                             <div class="mb-2">
+                                <a class="text-decoration-none" href="#">Twitter</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                
+
+
+
+
             </footer>
         </div>
     </form>

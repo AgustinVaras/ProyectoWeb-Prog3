@@ -60,7 +60,7 @@
 
                                   
                                 <li class="dropdown">
-                                    <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                         <%if (Carro.Articulos.Count() == 0) /*Muestra un icono distinto dependiendo si el carro tiene algo o no*/
                                             {   %> 
                                             <i class="bi bi-cart"></i>
@@ -70,7 +70,7 @@
                                             <i class="bi bi-cart-fill"></i>
                                         <%}%>
                                     </button>
-                                    <ul class="dropdown-menu dropdown-cart" role="menu">
+                                    <ul class="dropdown-menu dropdown-menu-end dropdown-lg-start position-absolute dropdown-cart " role="menu">
                                         <li>
                                             <span class="item">
                                                 <span class="item-left">

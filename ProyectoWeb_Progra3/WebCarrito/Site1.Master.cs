@@ -16,8 +16,13 @@ namespace WebCarrito
             if (!IsPostBack)
             {
                 Articulo art = new Articulo();
+                art.Descripcion = "prueba";
+                art.Nombre = "prueba_Art";
+                art.Precio = 500;
+                art.Codigo = "pr1";
+
                 Carro = new Carrito();
-                //Carro.Articulos.Add(art);
+                Carro.Articulos.Add(art);
             }
         }
 

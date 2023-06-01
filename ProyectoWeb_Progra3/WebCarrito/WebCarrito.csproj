@@ -64,12 +64,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Catalogo.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Default.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="content\Carrito.css" />
+    <Compile Include="Catalogo.aspx.cs">
+      <DependentUpon>Catalogo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalogo.aspx.designer.cs">
+      <DependentUpon>Catalogo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -107,6 +115,10 @@
     <ProjectReference Include="..\Clases\Clases.csproj">
       <Project>{b317c4d8-4032-4deb-91cd-af9b536a7536}</Project>
       <Name>Clases</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Conexiones\Conexiones.csproj">
+      <Project>{f1d355d1-481b-4532-aa2e-84302c39ca3b}</Project>
+      <Name>Conexiones</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

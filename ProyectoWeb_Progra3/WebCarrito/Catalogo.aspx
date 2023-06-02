@@ -18,7 +18,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title"><%: articulo.Nombre %></h5>
                                     <p class="card-text">$<%: articulo.Precio %></p>
-                                    <a href="#" class="btn btn-primary">Detalles</a>
+                                    <a href="Detalle.aspx?id=<%: articulo.Id %>" class="btn btn-primary">Ver detalles</a>
                                     <a href="#" class="btn btn-primary">Agregar al carrito</a>
                                 </div>
                                 <div class="card-footer">

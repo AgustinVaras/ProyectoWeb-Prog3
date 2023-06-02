@@ -10,7 +10,7 @@
 
         body
         {
-            background:#C99B18;
+          
             font-family:Arial, Helvetica, sans-serif;
         }
         /**/
@@ -19,7 +19,7 @@
          {   
                     width: 70%;
                     width: auto;
-                   /*margin: 0px auto;*/
+                    margin: 0px auto;
                     
                     
          }
@@ -35,7 +35,7 @@
          {
              float:right;
              width:90%;
-             min-height: 500px;
+             min-height: 800px;
              background: black;
          }
 
@@ -44,8 +44,8 @@
          {
              float:left;
              width:10%;
-             min-height: 500px;
-             background:green;
+             min-height: 800px;
+            
              
          }
 
@@ -70,14 +70,23 @@
         </section>
 
         <aside>
-            <h3>Barra Lateral</h3>
+            <div class="container-fluid">
+                <div class="row" >
+                    <div class="col-sm-3">
+                        <p class="h5">Categorias</p>
+                        <div class="opacity-50">
+                        <ul class="list-unstyled">
+                            <li><a class="text-primary text-decoration-none" href="#">Audio</a></li>
+                            <li><a class="text-primary text-decoration-none" href="#">Televisores</a></li>
+                            <li><a class="text-primary text-decoration-none" href="#">Media</a></li>
+                            <li><a class="text-primary text-decoration-none" href="#">Celulares</a></li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-            <ul>
-                <li><a href="#">Audio</a></li>
-                <li><a href="#">Celulares</a></li>
-                <li><a href="#">Televisores</a></li>
-                <li><a href="#">Media</a></li>
-            </ul>
+            
         </aside>
 
 

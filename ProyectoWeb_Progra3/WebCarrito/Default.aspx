@@ -36,7 +36,7 @@
              float:right;
              width:90%;
              min-height: 800px;
-             background: black;
+            background: red;
          }
 
          /*Barra izquierda*/
@@ -45,15 +45,15 @@
              float:left;
              width:10%;
              min-height: 800px;
-            
+                
              
          }
 
          ul li
          {
-             float:left; 
+            /* float:left; 
              margin: 2px;
-             list-style: none;
+             list-style: none;*/
 
          }
          

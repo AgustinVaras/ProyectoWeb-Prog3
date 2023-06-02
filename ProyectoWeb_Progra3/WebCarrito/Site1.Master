@@ -23,7 +23,7 @@
         <div>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Inicio</a>
+                    <a class="fw-bolder navbar-brand" href="#">Inicio</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
@@ -31,10 +31,10 @@
                     <div class="collapse navbar-collapse" id="NavbarContenido">
                           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                              <a class="nav-link" href="#">Nosotros</a>
+                              <a class="fw-bolder nav-link" href="#">Nosotros</a>
                             </li>
                             <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              <a class="fw-bolder nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Categorias
                               </a>
                               <ul class="dropdown-menu">
@@ -52,7 +52,7 @@
                                  <div class="opacity-50">
                                     <input class="form-control me-2" type="search" placeholder="Que estas buscando?" aria-label="Que estas buscando?">
                                 </div>
-                                    <button class="btn btn-outline-dark" type="submit">Buscar</button>
+                                    <button class="fw-bolder btn btn-outline-dark" type="submit">Buscar</button>
                             </form>
         
         
@@ -114,11 +114,11 @@
                     <div class="row p-3 bg-body-tertiary">
 
                         <div class="col-lg-3">
-                            <p class="h2">Proyecto web</p>
+                            <p class="fw-bolder h2">Proyecto web</p>
                         </div>
 
                         <div class="col-lg-3">
-                            <p class="h5">Medios de pago</p>
+                            <p class="fw-bolder h5">Medios de pago</p>
                             <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png" alt="Visa" width="50" height="45"/>
                             <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png" alt="mastercard" width="60" height="40"/>
                             <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png" alt="Amex" width="60" height="40" />
@@ -133,7 +133,7 @@
 
                         <div class="col-lg-3">
 
-                            <p class="h5">Contactanos</p>
+                            <p class="fw-bolder h5">Contactanos</p>
                             <div class="mb-2">
                                 <h6>47158212</h6>
                             </div>
@@ -149,7 +149,7 @@
 
                         <div class="col-lg-3">
 
-                            <p class="h5">Redes Sociales</p>
+                            <p class="fw-bolder h5">Redes Sociales</p>
                              <div class="mb-2">
                                 <a class="text-decoration-none" href="#">Facebook</a>
                             </div>

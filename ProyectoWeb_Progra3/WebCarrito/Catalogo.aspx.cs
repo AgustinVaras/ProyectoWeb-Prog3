@@ -12,10 +12,14 @@ namespace WebCarrito
     public partial class Catalogo : System.Web.UI.Page
     {
         public List<Articulo> ListaArticulo { get; set; }
+        public List<Imagen> ListaImagen { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             DatosDeArticulos articulo = new DatosDeArticulos();
             ListaArticulo = articulo.listar();
+            ImagenesDatos imagen = new ImagenesDatos();
+            ListaImagen = imagen.Listar();
         }
     }
 }

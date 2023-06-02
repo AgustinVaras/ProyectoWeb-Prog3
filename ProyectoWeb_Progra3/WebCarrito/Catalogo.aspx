@@ -10,7 +10,7 @@
            {
                 foreach (Clases.Imagen imagen in ListaImagen)
                 {
-                    if (articulo.Id == imagen.Id)
+                    if (articulo.Id == imagen.IdArticulo)
                     { %>
                         <div class="col">
                             <div class="card h-100">

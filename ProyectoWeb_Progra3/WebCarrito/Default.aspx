@@ -10,8 +10,10 @@
 
         body
         {
-          
-            font-family:Arial, Helvetica, sans-serif;
+   
+            max-width: auto;
+            
+
         }
         /**/
         /*ID de DIV*/
@@ -36,7 +38,6 @@
              float:right;
              width:90%;
              min-height: 800px;
-            background: red;
          }
 
          /*Barra izquierda*/

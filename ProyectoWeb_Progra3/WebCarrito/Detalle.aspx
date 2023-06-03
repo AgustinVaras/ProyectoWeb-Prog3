@@ -141,10 +141,18 @@
 <body>
 
     <main>
-        <div class="conteiner-imagen">
+        
+                <% foreach (Clases.Articulo articulo in ListaArticulo)
+           {
+                foreach (Clases.Imagen imagen in ListaImagen)
+                {
+                    if (articulo.Id == imagen.IdArticulo)
+                    { %>
+                        
+                    <div class="conteiner-imagen">
            
             <%-- Imagen referencia --%>
-            <img src="https://d22fxaf9t8d39k.cloudfront.net/e4b14270ade1a3c25db5c1ea9e90b98a866aa0784cd791de5e651b53f50d7c99155135.jpeg" alt="Producto" />
+            <img src="<%: imagen.ImagenUrl %>" alt="Producto" />
         
         </div>
 
@@ -152,18 +160,23 @@
             
              <div class="container-descripcion">
                 <div class="title-descripcion">
-                    <h4>Descripcion</h4>
+                    <h4>Datos del producto</h4>
                 </div>
                 <div class="text-descripcion">
                     <%-- Detalle referencia --%>
-                    <p>CELULAR</p>
+                    <ul>
+                        <li><p>Nombre: <%: articulo.Nombre %></p></li>
+                        <li><p>Descripcion: <%: articulo.Descripcion %></p></li>
+                        <li><p>Codigo: <%: articulo.Codigo %></p></li>
+                    </ul>
+
                 </div>
             </div>
 
             <div class="container-precio">
                
                 <%-- Precio referencia --%>
-                <span>$100.000</span>
+                <span>$<%: articulo.Precio %></span>
             </div>
 
             <div class="container-add-cart">
@@ -183,6 +196,12 @@
 
 
         </div>
+
+
+                 <% }
+                }
+           } %>
+        
 
     </main>
 

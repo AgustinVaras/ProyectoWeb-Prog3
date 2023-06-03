@@ -107,6 +107,33 @@
             
         }
 
+        .container-descripcion
+        {
+            display:flex;
+            flex-direction: column;
+            padding: 10px 0;
+
+        }
+
+        .text-descripcion
+        {
+
+            display:flex;
+            align-content: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .text-descripcion
+        {
+            font-size: 13px;
+            color: #252525;
+            line-height: 22px;
+            margin-top: 10px;
+
+        }
+
+
 
     </style>
 
@@ -126,7 +153,6 @@
              <div class="container-descripcion">
                 <div class="title-descripcion">
                     <h4>Descripcion</h4>
-                    <i class="bi bi-arrow-down"></i>
                 </div>
                 <div class="text-descripcion">
                     <%-- Detalle referencia --%>

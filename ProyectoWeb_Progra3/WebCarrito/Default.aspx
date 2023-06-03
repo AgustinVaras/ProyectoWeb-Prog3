@@ -11,7 +11,7 @@
         body
         {
    
-            max-width: auto;
+           max-width: auto;
             
 
         }
@@ -52,9 +52,9 @@
 
          ul li
          {
-            /* float:left; 
+            float:left; 
              margin: 2px;
-             list-style: none;*/
+             list-style: none;
 
          }
          

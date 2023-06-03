@@ -22,13 +22,14 @@
     <form id="form1" runat="server">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="fw-bolder navbar-brand" href="https://localhost:44390/">Inicio</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
+                <a class="btn btn-light mx-3" data-bs-toggle="offcanvas" href="#contenedor" role="button" aria-controls="offcanvasExample" >
+                     <span class="navbar-toggler-icon"></span>
+                </a>
                 <div class="collapse navbar-collapse" id="NavbarContenido">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="fw-bolder nav-link" href="/">Inicio</a>
+                        </li>
                         <li class="nav-item">
                             <a class="fw-bolder nav-link" href="Detalle.aspx">Nosotros</a>
                         </li>
@@ -45,9 +46,8 @@
                     </ul>
 
                     <form class="Buscador/Search" role="search">
-
-                        <div class="opacity-50">
-                            <input class="form-control me-2" type="search" placeholder="Que estas buscando?" aria-label="Que estas buscando?">
+                        <div class="opacity-50 me-2">
+                            <input class="form-control me-4" type="search" placeholder="Que estas buscando?" aria-label="Que estas buscando?">
                         </div>
                         <button class="fw-bolder btn btn-outline-dark" type="submit">Buscar</button>
                     </form>
@@ -99,6 +99,45 @@
                 </div>
             </div>
         </nav>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="contenedor" aria-labelledby="offcanvasCatalogo">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasCatalogo">Catálogo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+               <div class="container-fluid">
+                <div class="row" >
+                    <div class="col-sm-3">
+                        <p class="fw-bolder h5">Categorias</p>
+                        <div class="opacity-50">
+                        <ul class="list-unstyled">
+                            <li><a class="text-primary text-decoration-none" href="#">Audio</a></li>
+                            <li><a class="text-primary text-decoration-none" href="#">Televisores</a></li>
+                            <li><a class="text-primary text-decoration-none" href="#">Media</a></li>
+                            <li><a class="text-primary text-decoration-none" href="#">Celulares</a></li>
+                        </ul>
+                        </div>
+                    </div>
+                </div>
+                 <div class="row" >
+                    <div class="col-sm-3">
+                        <p class="fw-bolder h5">Marcas</p>
+                        <div>
+                        <div class="opacity-50">
+                        <ul class="list-unstyled">
+                            <li><a class="text-primary text-decoration-none" href="#">Samsung</a></li>
+                            <li><a class="text-primary text-decoration-none" href="#">Apple</a></li>
+                            <li><a class="text-primary text-decoration-none" href="#">Sony</a></li>
+                            <li><a class="text-primary text-decoration-none" href="#">Huawei</a></li>
+                            <li><a class="text-primary text-decoration-none" href="#">Motorola</a></li>
+                        </ul>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>

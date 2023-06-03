@@ -18,7 +18,14 @@
                                 <div class="card-body">
                                     <h5 class="card-title ms-1"><%: articulo.Nombre %></h5>
                                     <p class="card-text mb-1 ms-1">$<%: articulo.Precio %></p>
-                                    <a href="Detalle.aspx?id=<%: articulo.Id %>" class="btn btn-light btn-sm mb-3">Ver detalles</a>
+                                    <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+                                        <div class="btn-group me-2" role="group" aria-label="First group">
+                                            <a href="Detalle.aspx?id=<%: articulo.Id %>" class="btn btn-light btn-sm mb-3">Ver detalles</a>
+                                        </div>
+                                        <div class="btn-group" role="group" aria-label="Second group">                                            
+                                            <button type="button" class="btn btn-danger btn-sm mb-3">♥</button>
+                                        </div>
+                                    </div>
                                     <div  class="d-grid gap-2">
                                         <a href="#" class="btn btn-dark">Agregar al carrito</a>
                                     </div>

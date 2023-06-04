@@ -21,8 +21,12 @@ namespace WebCarrito
 
             if (!IsPostBack)
             {
-                repArticulos.DataSource = ListaArticulo;
-                repArticulos.DataBind();
+                if (ListaArticulo != null)
+                {
+                    List<Articulo> ListaSinRepetidos = removeDuplicatesArticulo(ListaArticulo);
+                    repArticulos.DataSource = ListaSinRepetidos;
+                    repArticulos.DataBind();
+                }
             }
         }
 
@@ -39,13 +43,50 @@ namespace WebCarrito
                 Articulo articulo = (Articulo)e.Item.DataItem;
                 ImagenesDatos imagen = new ImagenesDatos();
                 ListaImagen = imagen.Buscar("IdArticulo", articulo.Id.ToString());
-                List<Imagen> listaFiltrada = ListaImagen.Distinct().ToList();
 
-                Repeater repImagenes = (Repeater)e.Item.FindControl("repImagenes");
+                if (ListaImagen != null)
+                {
+                    List<Imagen> ListaSinRepetidos = removeDuplicatesImagen(ListaImagen); 
+                    Repeater repImagenes = (Repeater)e.Item.FindControl("repImagenes");
 
-                repImagenes.DataSource = listaFiltrada;
-                repImagenes.DataBind();
+                    repImagenes.DataSource = ListaSinRepetidos;
+                    repImagenes.DataBind();
+                }
+
+
+
             }
+        }
+
+        private List<Articulo> removeDuplicatesArticulo(List<Articulo> inputList)
+        {
+            Dictionary<string, string> uniqueStore = new Dictionary<string, string>();
+            List<Articulo> finalList = new List<Articulo>();
+            foreach (Articulo art in inputList)
+            {
+                if (!uniqueStore.ContainsKey(art.Codigo))
+                {
+                    uniqueStore.Add(art.Codigo, "0");
+                    finalList.Add(art);
+                }
+            }
+            return finalList;
+        }
+
+
+        private List<Imagen> removeDuplicatesImagen(List<Imagen> inputList)
+        {
+            Dictionary<string, string> uniqueStore = new Dictionary<string, string>();
+            List<Imagen> finalList = new List<Imagen>();
+            foreach (Imagen img in inputList)
+            {
+                if (!uniqueStore.ContainsKey(img.ImagenUrl))
+                {
+                    uniqueStore.Add(img.ImagenUrl, "0");
+                    finalList.Add(img);
+                }
+            }
+            return finalList;
         }
     }
 }

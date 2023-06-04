@@ -52,7 +52,7 @@
         .container-precio
         {
             padding-bottom: 20px;
-            border-bottom: 1px solid #ffffff;
+           
             display: flex;
             align-items: center;
 
@@ -70,7 +70,7 @@
             display: flex;
             gap: 10px;
             padding-bottom: 10px;
-            border-bottom: 1px solid #ffffff;
+            
 
         }
 
@@ -115,7 +115,7 @@
 
         }
 
-        .text-descripcion
+        .container-descripcion
         {
 
             display:flex;
@@ -130,7 +130,7 @@
             color: #252525;
             line-height: 22px;
             margin-top: 10px;
-
+            text-decoration-color: white;
         }
 
 
@@ -164,7 +164,7 @@
                 </div>
                 <div class="text-descripcion">
                     <%-- Detalle referencia --%>
-                    <ul>
+                    <ul class="text-white">
                         <li><p>Nombre: <%: articulo.Nombre %></p></li>
                         <li><p>Descripcion: <%: articulo.Descripcion %></p></li>
                         <li><p>Codigo: <%: articulo.Codigo %></p></li>

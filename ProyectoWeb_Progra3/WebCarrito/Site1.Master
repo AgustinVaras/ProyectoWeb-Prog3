@@ -2,6 +2,18 @@
 
 <!DOCTYPE html>
 
+<style>
+        body
+        {
+
+            
+
+        }
+
+
+</style>
+
+
 
 <html>
 <head runat="server">
@@ -18,9 +30,9 @@
     <link href="./content/Carrito.css" rel="stylesheet" />
 
 </head>
-<body>
+<body class="bg-dark text-white">
     <form id="form1" runat="server">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-dark">
             <div class="container-fluid">
                 <a class="btn btn-light mx-3" data-bs-toggle="offcanvas" href="#contenedor" role="button" aria-controls="offcanvasExample" >
                      <span class="navbar-toggler-icon"></span>
@@ -28,31 +40,28 @@
                 <div class="collapse navbar-collapse" id="NavbarContenido">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="fw-bolder nav-link" href="/">Inicio</a>
+                            <a class="fw-bolder nav-link text-white" href="/">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="fw-bolder nav-link" href="Detalle.aspx">Nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="fw-bolder nav-link" href="Catalogo.aspx">Tienda</a>
+                            <a class="fw-bolder nav-link text-white" href="Catalogo.aspx">Tienda</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="fw-bolder nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias
+                            <a class="fw-bolder nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Audio</a></li>
-                                <li><a class="dropdown-item" href="#">Celulares</a></li>
-                                <li><a class="dropdown-item" href="#">Televisores</a></li>
-                                <li><a class="dropdown-item" href="#">Media</a></li>
+                            <ul class="dropdown-menu bg-secondary">
+                                <li><a class="dropdown-item text-white" href="#">Audio</a></li>
+                                <li><a class="dropdown-item text-white" href="#">Celulares</a></li>
+                                <li><a class="dropdown-item text-white" href="#">Televisores</a></li>
+                                <li><a class="dropdown-item text-white" href="#">Media</a></li>
                             </ul>
                         </li>
                     </ul>
 
                     <div class="d-flex" role="search">
                         <div class="opacity-50 me-2">
-                            <input class="form-control me-4" type="search" placeholder="Que estas buscando?" aria-label="Que estas buscando?">
+                            <input class="form-control me-4" type="search" placeholder="Que estas buscando?" aria-labe="">
                         </div>
-                        <button class="fw-bolder btn btn-outline-dark" type="submit">Buscar</button>
+                        <button class="fw-bolder btn btn-outline-light" type="submit">Buscar</button>
                     </div>
 
                     <div>
@@ -102,37 +111,37 @@
                 </div>
             </div>
         </nav>
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="contenedor" aria-labelledby="offcanvasCatalogo">
+        <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="contenedor" aria-labelledby="offcanvasCatalogo">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasCatalogo">Catálogo</h5>
+                <h5 class="offcanvas-title text-white" id="offcanvasCatalogo">Catálogo</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
                <div class="container-fluid">
                 <div class="row" >
                     <div class="col-sm-3">
-                        <p class="fw-bolder h5">Categorias</p>
-                        <div class="opacity-50">
+                        <p class="fw-bolder text-white h5">Categorias</p>
+                        <div class="opacity-90">
                         <ul class="list-unstyled">
-                            <li><a class="text-primary text-decoration-none" href="#">Audio</a></li>
-                            <li><a class="text-primary text-decoration-none" href="#">Televisores</a></li>
-                            <li><a class="text-primary text-decoration-none" href="#">Media</a></li>
-                            <li><a class="text-primary text-decoration-none" href="#">Celulares</a></li>
+                            <li><a class="text-white text-decoration-none" href="#">Audio</a></li>
+                            <li><a class="text-white text-decoration-none" href="#">Televisores</a></li>
+                            <li><a class="text-white text-decoration-none" href="#">Media</a></li>
+                            <li><a class="text-white text-decoration-none" href="#">Celulares</a></li>
                         </ul>
                         </div>
                     </div>
                 </div>
                  <div class="row" >
                     <div class="col-sm-3">
-                        <p class="fw-bolder h5">Marcas</p>
+                        <p class="fw-bolder text-white h5">Marcas</p>
                         <div>
-                        <div class="opacity-50">
+                        <div class="opacity-90">
                         <ul class="list-unstyled">
-                            <li><a class="text-primary text-decoration-none" href="#">Samsung</a></li>
-                            <li><a class="text-primary text-decoration-none" href="#">Apple</a></li>
-                            <li><a class="text-primary text-decoration-none" href="#">Sony</a></li>
-                            <li><a class="text-primary text-decoration-none" href="#">Huawei</a></li>
-                            <li><a class="text-primary text-decoration-none" href="#">Motorola</a></li>
+                            <li><a class="text-white text-decoration-none" href="#">Samsung</a></li>
+                            <li><a class="text-white text-decoration-none" href="#">Apple</a></li>
+                            <li><a class="text-white text-decoration-none" href="#">Sony</a></li>
+                            <li><a class="text-white text-decoration-none" href="#">Huawei</a></li>
+                            <li><a class="text-white text-decoration-none" href="#">Motorola</a></li>
                         </ul>
                         </div>
                         </div>

@@ -20,14 +20,14 @@
                             <p class="card-text mb-1 ms-1">$<%#Eval("Precio") %></p>
                             <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
                                 <div class="btn-group me-2" role="group" aria-label="First group">
-                                    <a href="Detalle.aspx?id=<%#Eval("Id") %>" class="btn btn-light btn-sm mb-3">Ver detalles</a>
+                                    <a href="Detalle.aspx?cod=<%#Eval("Codigo") %>" class="btn btn-light btn-sm mb-3">Ver detalles</a>
                                 </div>
                                 <div class="btn-group" role="group" aria-label="Second group">
                                     <button type="button" class="btn btn-danger btn-sm mb-3">♥</button>
                                 </div>
                             </div>
                             <div class="d-grid gap-2">
-                                <asp:Button ID="btnAgregarACarrito" CssClass="btn btn-dark" Text="Agregar al carrito" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo" OnClick="btnAgregarACarrito_Click" runat="server" />
+                                <asp:Button ID="btnAgregarACarrito" CssClass="btn btn-dark" Text="Agregar al carrito" CommandArgument='<%#Eval("Codigo") %>' CommandName="IdArticulo" OnClick="btnAgregarACarrito_Click" runat="server" />
                             </div>
                         </div>
                         <div class="card-footer">

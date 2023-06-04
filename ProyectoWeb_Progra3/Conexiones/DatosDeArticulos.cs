@@ -83,44 +83,6 @@ namespace Conexiones
             }
         }
 
-
-        /* public Articulo listarArticulo(string ID)
-         {
-             Articulo objArticulo = new Articulo();
-             AccesoSQL Datos = new AccesoSQL();
-
-             try
-             {
-
-                 Datos.Consulta("Select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio , C.Id Categoria, M.Id Marca From ARTICULOS A  Inner Join MARCAS M on A.IdMarca = M.Id Inner Join CATEGORIAS C on A.IdCategoria = C.Id where a.Id = " + ID);
-                 Datos.EjecutarLectura();
-
-                 while (Datos.Lector.Read())
-                 {
-
-                 objArticulo.Id = (int)Datos.Lector["Id"];
-                 objArticulo.IdCategoria = (int)Datos.Lector["Categoria"];
-                 objArticulo.IdMarca = (int)Datos.Lector["Marca"];
-                 objArticulo.Codigo = (string)Datos.Lector["Codigo"];
-                 objArticulo.Nombre = (string)Datos.Lector["Nombre"];
-                 objArticulo.Descripcion = (string)Datos.Lector["Descripcion"];
-                 objArticulo.Precio = Decimal.Round((decimal)Datos.Lector["Precio"], 2);
-
-
-                 }
-
-                 return objArticulo;
-             }
-             catch (Exception ex)
-             {
-                 throw ex;
-             }
-             finally
-             {
-                 Datos.CerrarConexion();
-             }
-         }*/
-
         public void Agregar(Articulo nuevo)
         {
             AccesoSQL datos = new AccesoSQL();

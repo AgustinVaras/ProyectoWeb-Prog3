@@ -17,18 +17,20 @@ namespace WebCarrito
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string ID = Request.QueryString["ID"].ToString();
+            if(Request.QueryString["cod"] != null)
+            {
+                string codigo = Request.QueryString["cod"].ToString();
 
-            DatosDeArticulos articulo = new DatosDeArticulos();
-            ListaArticulo = articulo.listar2(ID);
-            ImagenesDatos imagen = new ImagenesDatos();
-            ListaImagen = imagen.Listar();
+                DatosDeArticulos articulo = new DatosDeArticulos();
+                ListaArticulo = articulo.Buscar(codigo, "Codigo");
+                ImagenesDatos imagen = new ImagenesDatos();
+                ListaImagen = imagen.Listar();
 
-            /*DatosDeArticulos articulo = new DatosDeArticulos();
-            Producto = articulo.listarArticulo(ID);
-            ImagenesDatos imagen = new ImagenesDatos();
-            ListaImagen = imagen.Listar();*/
-
+                /*DatosDeArticulos articulo = new DatosDeArticulos();
+                Producto = articulo.listarArticulo(ID);
+                ImagenesDatos imagen = new ImagenesDatos();
+                ListaImagen = imagen.Listar();*/
+            }
         }
     }
 }

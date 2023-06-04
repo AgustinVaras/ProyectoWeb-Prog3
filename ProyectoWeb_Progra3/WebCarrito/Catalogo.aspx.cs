@@ -12,7 +12,9 @@ namespace WebCarrito
     public partial class Catalogo : System.Web.UI.Page
     {
         public List<Articulo> ListaArticulo { get; set; }
+
         public List<Imagen> ListaImagen { get; set; }
+        public List<Articulo> ListaCarrito = new List<Articulo>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -51,7 +53,7 @@ namespace WebCarrito
             }
         }
 
-        
+
         protected void btnAgregarACarrito_Click(object sender, EventArgs e)
         {
             string codigo = ((Button)sender).CommandArgument;
@@ -59,9 +61,20 @@ namespace WebCarrito
             DatosDeArticulos articulos = new DatosDeArticulos();
             ListaArticulo = articulos.Buscar(codigo, "Codigo");
 
-            List<Articulo> ListaSinRepetidos = articulos.removeDuplicadosArticulo(ListaArticulo);
-
-            Session.Add("articuloAgregado", ListaSinRepetidos);
+            if(ListaArticulo != null)
+            {
+                if (Session["articulosAgregados"] == null)
+                {                    
+                    ListaCarrito.Add(ListaArticulo.First());
+                    Session.Add("articulosAgregados", ListaCarrito);                    
+                }
+                else
+                {
+                    ListaCarrito = (List <Articulo>)Session["articulosAgregados"];
+                    ListaCarrito.Add(ListaArticulo.First());
+                    Session.Add("articulosAgregados", ListaCarrito);
+                }              
+            }
         }
     }
 }

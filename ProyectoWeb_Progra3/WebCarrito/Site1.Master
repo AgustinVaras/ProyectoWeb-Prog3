@@ -60,7 +60,7 @@
                             <li class="dropdown">
                                 <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                    <% /*Muestra un icono distinto dependiendo si el carro tiene algo o no*/
-                                      if (Carro.Articulos.Count() == 0) 
+                                      if (Carro == null) 
                                       { %>
                                         <i class="bi bi-cart"></i>
                                    <% } %>
@@ -72,7 +72,7 @@
                                 <ul class="dropdown-menu dropdown-menu-end dropdown-lg-start position-absolute dropdown-cart " role="menu">
                                     <li>
                                         <%--Valido que el carrito tenga o no articulos --%>
-                                        <% if (Carro.Articulos.Count() == 0)
+                                        <% if (Carro == null)
                                            { %>
                                             <h6 class="dropdown-header">Todavía no agregó Articulos</h6>
                                         <% }

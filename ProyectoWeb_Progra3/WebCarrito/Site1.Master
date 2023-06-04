@@ -144,16 +144,16 @@
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-            <footer style:>
+            <footer">
                 <hr />
                 <div class="container-fluid">
-                    <div class="row p-3 bg-body-tertiary">
+                    <div class="row p-3 bg-dark text-white">
                         <div class="col-lg-3">
                             <p class="fw-bolder h2">Proyecto web</p>
                         </div>
                         <div class="col-lg-3">
                             <p class="fw-bolder h5">Medios de pago</p>
-                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png" alt="Visa" width="50" height="45" />
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png" alt="Visa" width="60" height="40" />
                             <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png" alt="mastercard" width="60" height="40" />
                             <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png" alt="Amex" width="60" height="40" />
                             <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/pagofacil@2x.png" alt="Pagofacil" width="60" height="40" />

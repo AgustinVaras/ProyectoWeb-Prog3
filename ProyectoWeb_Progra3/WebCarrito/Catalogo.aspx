@@ -5,12 +5,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Tienda</h1>
     <p>Catálogo de Productos</p>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <asp:Repeater ID="repArticulos" runat="server">
+    <div class="row row-cols-1 row-cols-md-3 g-4">      
+        <asp:Repeater ID="repArticulos" OnItemDataBound="repImagenes_ItemDataBound" runat="server">
             <ItemTemplate>
                 <div class="col">
                     <div class="card h-100">
-                        <img src="#" class="card-img-top img-fluid" alt="...">
+                        <asp:Repeater ID="repImagenes" runat="server">
+                            <ItemTemplate>
+                                <img src="<%#Eval("ImagenUrl") %>" class="card-img-top img-fluid" alt="...">
+                            </ItemTemplate>
+                        </asp:Repeater>
                         <div class="card-body">
                             <h5 class="card-title ms-1"><%#Eval("Nombre") %></h5>
                             <p class="card-text mb-1 ms-1">$<%#Eval("Precio") %></p>

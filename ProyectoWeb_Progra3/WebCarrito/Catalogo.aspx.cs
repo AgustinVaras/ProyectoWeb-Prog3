@@ -30,5 +30,22 @@ namespace WebCarrito
         {
             string id = ((Button)sender).CommandArgument;
         }
+
+        protected void repImagenes_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item ||
+                e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Articulo articulo = (Articulo)e.Item.DataItem;
+                ImagenesDatos imagen = new ImagenesDatos();
+                ListaImagen = imagen.Buscar("IdArticulo", articulo.Id.ToString());
+                List<Imagen> listaFiltrada = ListaImagen.Distinct().ToList();
+
+                Repeater repImagenes = (Repeater)e.Item.FindControl("repImagenes");
+
+                repImagenes.DataSource = listaFiltrada;
+                repImagenes.DataBind();
+            }
+        }
     }
 }

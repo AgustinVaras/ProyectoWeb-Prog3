@@ -18,8 +18,17 @@ namespace WebCarrito
         {
             DatosDeArticulos articulo = new DatosDeArticulos();
             ListaArticulo = articulo.listar();
-            ImagenesDatos imagen = new ImagenesDatos();
-            ListaImagen = imagen.Listar();
+
+            if (!IsPostBack)
+            {
+                repArticulos.DataSource = ListaArticulo;
+                repArticulos.DataBind();
+            }
+        }
+
+        protected void btnAgregarACarrito_Click(object sender, EventArgs e)
+        {
+            string id = ((Button)sender).CommandArgument;
         }
     }
 }

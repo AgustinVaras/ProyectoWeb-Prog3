@@ -65,48 +65,20 @@
                     </div>
 
                     <div>
+
                         <ul class="nav navbar-nav navbar-right ">
                             <li class="dropdown">
                                 <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                                   <% /*Muestra un icono distinto dependiendo si el carro tiene algo o no*/
-                                      if (Carro == null) 
-                                      { %>
-                                        <i class="bi bi-cart"></i>
-                                   <% } %>
-                                   <% else
-                                      { %>
-                                        <i class="bi bi-cart-fill"></i>
-                                   <% } %>
+                                     <i class="bi bi-cart"></i>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end dropdown-lg-start position-absolute dropdown-cart " role="menu">
                                     <li>
-                                        <%--Valido que el carrito tenga o no articulos --%>
-                                        <% if (Carro == null)
-                                           { %>
-                                            <h6 class="dropdown-header">Todavía no agregó Articulos</h6>
-                                        <% }
-                                        else
-                                        {
-                                            foreach (Clases.Articulo art in Carro.Articulos)
-                                            { %>
-                                                <span class="item">
-                                                    <span class="item-left">
-                                                        <img src="http://www.prepbootstrap.com/Content/images/template/menucartdropdown/item_1.jpg" alt="" />
-                                                        <span class="item-info">
-                                                            <span><% art.Nombre.ToString(); %></span>
-                                                            <span>precio: $<% art.Precio.ToString(); %></span>
-                                                        </span>
-                                                    </span>
-                                                    <span class="item-right">
-                                                        <button class="btn btn-danger fa fa-close"></button>
-                                                    </span>
-                                                </span>
-                                          <%}
-                                        } %>
+                                         <h6 class="dropdown-header">Todavía no agregó Articulos</h6>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
+
                     </div>
                 </div>
             </div>

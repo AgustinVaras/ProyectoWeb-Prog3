@@ -48,12 +48,12 @@
                         </li>
                     </ul>
 
-                    <form class="Buscador/Search" role="search">
+                    <div class="d-flex" role="search">
                         <div class="opacity-50 me-2">
                             <input class="form-control me-4" type="search" placeholder="Que estas buscando?" aria-label="Que estas buscando?">
                         </div>
                         <button class="fw-bolder btn btn-outline-dark" type="submit">Buscar</button>
-                    </form>
+                    </div>
 
                     <div>
                         <ul class="nav navbar-nav navbar-right ">

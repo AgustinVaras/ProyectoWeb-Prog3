@@ -17,6 +17,7 @@ namespace Clases
 
         public List<Articulo> Articulos
         {
+            set { articulos = value; }
             get { return articulos; }
         }
         public decimal Monto

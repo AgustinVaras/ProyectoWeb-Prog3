@@ -13,19 +13,11 @@ namespace WebCarrito
         public Carrito Carro { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            Carro = new Carrito();
+            if (Session["articulosAgregados"] != null)
             {
-                Articulo art = new Articulo();
-                art.Descripcion = "prueba";
-                art.Nombre = "prueba_Art";
-                art.Precio = 500;
-                art.Codigo = "pr1";
-
-                Carro = new Carrito();
-                Carro.Articulos.Add(art);
+                Carro.Articulos = (List<Articulo>)Session["articulosAgregados"];
             }
         }
-
-
     }
 }

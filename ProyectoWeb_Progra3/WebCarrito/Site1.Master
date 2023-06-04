@@ -70,31 +70,34 @@
                                    <% } %>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end dropdown-lg-start position-absolute dropdown-cart " role="menu">
-                                    <li>
                                         <%--Valido que el carrito tenga o no articulos --%>
-                                        <% if (Carro == null)
+                                        <% if (Carro.Articulos == null)
                                            { %>
-                                            <h6 class="dropdown-header">Todavía no agregó Articulos</h6>
+                                            <li><h6 class="dropdown-header">Todavía no agregó Articulos</h6></li>
                                         <% }
                                         else
                                         {
                                             foreach (Clases.Articulo art in Carro.Articulos)
                                             { %>
-                                                <span class="item">
-                                                    <span class="item-left">
-                                                        <img src="http://www.prepbootstrap.com/Content/images/template/menucartdropdown/item_1.jpg" alt="" />
-                                                        <span class="item-info">
-                                                            <span><% art.Nombre.ToString(); %></span>
-                                                            <span>precio: $<% art.Precio.ToString(); %></span>
-                                                        </span>
-                                                    </span>
-                                                    <span class="item-right">
-                                                        <button class="btn btn-danger fa fa-close"></button>
-                                                    </span>
-                                                </span>
+                                            <li>
+                                                <a class="dropdown-item" href="#">
+                                                    <div class="item">
+                                                        <div class="item-left">
+                                                            <img src="http://www.prepbootstrap.com/Content/images/template/menucartdropdown/item_1.jpg" alt="" />
+                                                            <div class="mb-3">
+                                                                <label class="form-label"><%: art.Nombre %></label>
+                                                                <label class="form-label"> Precio: $<%: art.Precio %></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item-right">
+                                                            <button class="btn btn-danger fa fa-close"></button>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
                                           <%}
                                         } %>
-                                    </li>
+                                    
                                 </ul>
                             </li>
                         </ul>

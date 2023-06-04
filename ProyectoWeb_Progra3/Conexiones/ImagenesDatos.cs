@@ -31,7 +31,6 @@ namespace Conexiones
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
@@ -51,7 +50,6 @@ namespace Conexiones
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
@@ -87,38 +85,42 @@ namespace Conexiones
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally
             {
                 Datos.CerrarConexion();
             }
-
-
         }
 
         public void Eliminar(int Id)
         {
-
-
             try
             {
                 AccesoSQL datos = new AccesoSQL();
                 datos.Consulta("DELETE from IMAGENES where Id = @Id");
                 datos.SetParametros("@Id", Id);
                 datos.EjecutarAccion();
-
-
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-
         }
 
-
+        public List<Imagen> removeDuplicadosImagen(List<Imagen> inputList)
+        {
+            Dictionary<string, string> uniqueStore = new Dictionary<string, string>();
+            List<Imagen> finalList = new List<Imagen>();
+            foreach (Imagen img in inputList)
+            {
+                if (!uniqueStore.ContainsKey(img.ImagenUrl))
+                {
+                    uniqueStore.Add(img.ImagenUrl, "0");
+                    finalList.Add(img);
+                }
+            }
+            return finalList;
+        }
     }
 }

@@ -219,6 +219,19 @@ namespace Conexiones
             
         }
 
-
+        public List<Articulo> removeDuplicadosArticulo(List<Articulo> inputList)
+        {
+            Dictionary<string, string> uniqueStore = new Dictionary<string, string>();
+            List<Articulo> finalList = new List<Articulo>();
+            foreach (Articulo art in inputList)
+            {
+                if (!uniqueStore.ContainsKey(art.Codigo))
+                {
+                    uniqueStore.Add(art.Codigo, "0");
+                    finalList.Add(art);
+                }
+            }
+            return finalList;
+        }
     }
 }

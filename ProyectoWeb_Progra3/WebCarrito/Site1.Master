@@ -77,7 +77,7 @@
                                         
                                     <% if (Carro.Articulos == null)
                                            { %>
-                                            <li><h6 class="dropdown-header">Todavía no agregó Articulos</h6></li>
+                                                    <h6 class="dropdown">No hay producto todavia</h6>
                                         <% }
                                         else
                                         {
@@ -102,9 +102,6 @@
                                                                 <label class="form-label"> Precio: $<%: art.Precio %></label>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="item-right">
-                                                            <button class="btn btn-danger fa fa-close"></button>
                                                         </div>
                                                     </div>
                                                 </a>

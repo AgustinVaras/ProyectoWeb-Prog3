@@ -2,28 +2,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <style>
-       
+    <style>       
         *
         {
             padding:0;
             margin:0;
             box-sizing:border-box;
-
         }
 
         body
         {
-            max-width: auto;
-            
-
+            max-width: auto;           
         }
 
         img
         {
             max-width: 100%;
-
         }
 
         main
@@ -31,19 +25,15 @@
             display: flex;
             gap: 30px;
             margin-bottom: 80px;
-
         }
 
         .conteiner-imagen
-        {
-            
+        {            
             flex:1;
-
         }
 
         .container-info-producto
         {
-
             flex:1;
             display: flex;
             flex-direction: column;
@@ -55,23 +45,19 @@
            
             display: flex;
             align-items: center;
-
         }
        
         .container-precio span
         {
             font-size: 24px;
             font-weight: 400;
-
         }
 
         .container-add-cart
         {
             display: flex;
             gap: 10px;
-            padding-bottom: 10px;
-            
-
+            padding-bottom: 10px;           
         }
 
         .container-cantidad
@@ -103,8 +89,7 @@
             justify-content: center;
             gap: 5px;
             font-weight: 700;
-            cursor: pointer;
-            
+            cursor: pointer;            
         }
 
         .container-descripcion
@@ -112,7 +97,6 @@
             display:flex;
             flex-direction: column;
             padding: 10px 0;
-
         }
 
         .container-descripcion
@@ -136,82 +120,52 @@
 
 
     </style>
-
-
 <body>
-
-    <main>
-        
-                <% foreach (Clases.Articulo articulo in ListaArticulo)
+    <main> 
+        <% foreach (Clases.Articulo articulo in ListaArticulo)
            {
                 foreach (Clases.Imagen imagen in ListaImagen)
                 {
                     if (articulo.Id == imagen.IdArticulo)
                     { %>
-                        
-                    <div class="conteiner-imagen">
-           
-            <%-- Imagen referencia --%>
-            <img src="<%: imagen.ImagenUrl %>" alt="Producto" />
-        
-        </div>
-
-        <div class="container-info-producto">
-            
-             <div class="container-descripcion">
-                <div class="title-descripcion">
-                    <h4>Datos del producto</h4>
-                </div>
-                <div class="text-descripcion">
-                    <%-- Detalle referencia --%>
-                    <ul class="text-white">
-                        <li><p>Nombre: <%: articulo.Nombre %></p></li>
-                        <li><p>Descripcion: <%: articulo.Descripcion %></p></li>
-                        <li><p>Codigo: <%: articulo.Codigo %></p></li>
-                    </ul>
-
-                </div>
-            </div>
-
-            <div class="container-precio">
-               
-                <%-- Precio referencia --%>
-                <span>$<%: articulo.Precio %></span>
-            </div>
-
-            <div class="container-add-cart">
-
-                <div class="container-cantidad">
-
-                    <input type="number" placeholder="1" value="1" min="1" class="input-cantidad"/>
-                    <%--  Contador, minimo valor aceptable 1, arranca con el valor en 1  --%>
-                </div>
-            <button class="btn-add-al-carrito">
-               <i class="bi bi-plus"></i>
-                Añadir al carrito
-            </button>
-
-            </div>
-
-
-
-        </div>
-
-
+                        <div class="conteiner-imagen">
+                            <%-- Imagen referencia --%>
+                            <img src="<%: imagen.ImagenUrl %>" alt="Producto" />
+                        </div>
+                        <div class="container-info-producto">
+                            <div class="container-descripcion">
+                                <div class="title-descripcion">
+                                    <h4>Datos del producto</h4>
+                                </div>
+                                <div class="text-descripcion">
+                                    <%-- Detalle referencia --%>
+                                    <ul class="text-white">
+                                        <li>
+                                            <p>Nombre: <%: articulo.Nombre %></p>
+                                        </li>
+                                        <li>
+                                            <p>Descripcion: <%: articulo.Descripcion %></p>
+                                        </li>
+                                        <li>
+                                            <p>Codigo: <%: articulo.Codigo %></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="container-precio">
+                                <%-- Precio referencia --%>
+                                <span>$<%: articulo.Precio %></span>
+                            </div>
+                            <div class="container-add-cart">
+                                <div class="container-cantidad">
+                                    <input type="number" placeholder="1" value="1" min="1" class="input-cantidad" />
+                                    <%--  Contador, minimo valor aceptable 1, arranca con el valor en 1  --%>
+                                </div>
+                                <asp:Button ID="btnAgregarACarrito" CssClass="btn-add-al-carrito" Text="+Agregar al carrito" OnClick="btnAgregarACarrito_Click" runat="server" />
+                            </div>
+                        </div>
                  <% }
                 }
            } %>
-        
-
-    </main>
-
-
-
-
-</body>
-
-
-
-
-
+      </main>
 </asp:Content>

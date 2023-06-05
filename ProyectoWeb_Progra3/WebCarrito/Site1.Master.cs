@@ -20,6 +20,12 @@ namespace WebCarrito
             MarcaDatos marcaDatos = new MarcaDatos();
             if(!IsPostBack)
             {
+                ddlCategorias.DataSource = categoriaDatos.removeDuplicadosCategoria(categoriaDatos.Listar());
+                ddlCategorias.AppendDataBoundItems = true;
+                ddlCategorias.DataTextField = "Descripcion";
+                ddlCategorias.DataValueField = "Id";
+                ddlCategorias.DataBind();
+
                 repCategorias.DataSource = categoriaDatos.removeDuplicadosCategoria(categoriaDatos.Listar());
                 repCategorias.DataBind();
                 repMarcas.DataSource = marcaDatos.removeDuplicadosMarca(marcaDatos.Listar());
@@ -34,6 +40,12 @@ namespace WebCarrito
                 ImagenesDatos imagen = new ImagenesDatos();
                 ListaImagen = imagen.Listar();
             }
+        }
+
+        protected void ddlCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = int.Parse(ddlCategorias.SelectedValue);
+            Response.Redirect("Catalogo.aspx?categoriaArt=" + id, false);
         }
     }
 }

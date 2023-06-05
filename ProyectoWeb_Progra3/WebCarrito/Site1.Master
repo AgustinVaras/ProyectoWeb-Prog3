@@ -46,30 +46,24 @@
                             <a class="fw-bolder nav-link text-white" href="Catalogo.aspx">Tienda</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="fw-bolder nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorias
-                            </a>
-                            <ul class="dropdown-menu bg-secondary">
-                                <li><a class="dropdown-item text-white" href="#">Audio</a></li>
-                                <li><a class="dropdown-item text-white" href="#">Celulares</a></li>
-                                <li><a class="dropdown-item text-white" href="#">Televisores</a></li>
-                                <li><a class="dropdown-item text-white" href="#">Media</a></li>
-                            </ul>
+                            <asp:DropDownList runat="server" ID="ddlCategorias" CssClass="btn btn-dark dropdown-toggle fw-bolder" AutoPostBack="true" OnSelectedIndexChanged="ddlCategorias_SelectedIndexChanged">
+                                <asp:ListItem Text="Categorías">Categorías</asp:ListItem>
+                            </asp:DropDownList>
                         </li>
                     </ul>
-
+                     <%-- Buscador --%>
                     <div class="d-flex" role="search">
                         <div class="opacity-50 me-2">
                             <input class="form-control me-4" type="search" placeholder="Que estas buscando?" aria-labe="">
                         </div>
                         <button class="fw-bolder btn btn-outline-light" type="submit">Buscar</button>
                     </div>
-
+                    <%-- Carrito --%>
                     <div>
-
                         <ul class="nav navbar-nav navbar-right ">
                             <li class="dropdown">
                                 <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                                     <i class="bi bi-cart"></i>
+                                     <i class="bi bi-cart"></i>  (boton con autopostbakc)
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end dropdown-lg-start position-absolute dropdown-cart " role="menu">
                                         <%--Valido que el carrito tenga o no articulos --%>

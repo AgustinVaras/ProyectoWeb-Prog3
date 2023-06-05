@@ -63,11 +63,19 @@
                         <ul class="nav navbar-nav navbar-right ">
                             <li class="dropdown">
                                 <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                                     <i class="bi bi-cart"></i>  (boton con autopostbakc)
+                                   <% /*Muestra un icono distinto dependiendo si el carro tiene algo o no*/
+                                      if (Session["articulosAgregados"] == null) 
+                                      { %>
+                                        <i class="bi bi-cart"></i>
+                                   <% } %>
+                                   <% else
+                                      { %>
+                                        <i class="bi bi-cart-fill"></i>
+                                   <% } %>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end dropdown-lg-start position-absolute dropdown-cart " role="menu">
                                         <%--Valido que el carrito tenga o no articulos --%>
-                                        <% if (Carro.Articulos == null)
+                                        <% if (Session["articulosAgregados"] == null)
                                            { %>
                                             <li><h6 class="dropdown-header">Todavía no agregó Articulos</h6></li>
                                         <% }
@@ -76,7 +84,7 @@
                                             foreach (Clases.Articulo art in Carro.Articulos)
                                             { %>
                                             <li>
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item" href="Detalle.aspx?cod=<%: art.Codigo %>">
                                                     <div class="item">
                                                         <div class="item-left">
                                                             <img src="http://www.prepbootstrap.com/Content/images/template/menucartdropdown/item_1.jpg" alt="" />

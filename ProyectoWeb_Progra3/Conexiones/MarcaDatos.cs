@@ -83,5 +83,20 @@ namespace Conexiones
             }
             else return true;
         }
+
+        public List<Marca> removeDuplicadosMarca(List<Marca> inputList)
+        {
+            Dictionary<string, string> uniqueStore = new Dictionary<string, string>();
+            List<Marca> finalList = new List<Marca>();
+            foreach (Marca mar in inputList)
+            {
+                if (!uniqueStore.ContainsKey(mar.Descripcion))
+                {
+                    uniqueStore.Add(mar.Descripcion, "0");
+                    finalList.Add(mar);
+                }
+            }
+            return finalList;
+        }
     }
 }

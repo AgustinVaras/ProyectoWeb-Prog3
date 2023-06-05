@@ -16,6 +16,17 @@ namespace WebCarrito
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            CategoriaDatos categoriaDatos = new CategoriaDatos();
+            MarcaDatos marcaDatos = new MarcaDatos();
+            if(!IsPostBack)
+            {
+                repCategorias.DataSource = categoriaDatos.removeDuplicadosCategoria(categoriaDatos.Listar());
+                repCategorias.DataBind();
+                repMarcas.DataSource = marcaDatos.removeDuplicadosMarca(marcaDatos.Listar());
+                repMarcas.DataBind();
+            }
+
+
             Carro = new Carrito();
             if (Session["articulosAgregados"] != null)
             {

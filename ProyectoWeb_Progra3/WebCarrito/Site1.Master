@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 <style>
-        body
+        .ImagenCarrito
         {
 
+            width: 70px;
+            height: 80px;
             
-
         }
 
 
@@ -73,22 +74,33 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end dropdown-lg-start position-absolute dropdown-cart " role="menu">
                                         <%--Valido que el carrito tenga o no articulos --%>
-                                        <% if (Carro.Articulos == null)
+                                        
+                                    <% if (Carro.Articulos == null)
                                            { %>
                                             <li><h6 class="dropdown-header">Todavía no agregó Articulos</h6></li>
                                         <% }
                                         else
                                         {
+
+                                            
                                             foreach (Clases.Articulo art in Carro.Articulos)
                                             { %>
+                                             <% foreach (Clases.Imagen imagen in ListaImagen)
+                                                 {%> 
+                                                <%if (art.Id == imagen.IdArticulo)
+                                                    { %>
                                             <li>
                                                 <a class="dropdown-item" href="#">
                                                     <div class="item">
                                                         <div class="item-left">
-                                                            <img src="http://www.prepbootstrap.com/Content/images/template/menucartdropdown/item_1.jpg" alt="" />
+                                                            <img class="ImagenCarrito" src="<%:imagen.ImagenUrl%>" alt="Imagen" />
                                                             <div class="mb-3">
+                                                                <div>
                                                                 <label class="form-label"><%: art.Nombre %></label>
+                                                                </div>
+                                                                <div>
                                                                 <label class="form-label"> Precio: $<%: art.Precio %></label>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="item-right">
@@ -97,7 +109,10 @@
                                                     </div>
                                                 </a>
                                             </li>
+                                                  <%} %>
+                                                <%} %>
                                           <%}
+                                       
                                         } %>
                                     
                                 </ul>

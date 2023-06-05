@@ -19,13 +19,28 @@ namespace WebCarrito
         protected void Page_Load(object sender, EventArgs e)
         {
             DatosDeArticulos articulo = new DatosDeArticulos();
-            ListaArticulo = articulo.listar();
 
-            if (!IsPostBack)
+            if(!IsPostBack)
             {
-                if (ListaArticulo != null)
+                if (Request.QueryString.AllKeys.Contains("categoriaArt"))
                 {
-                    List<Articulo> ListaSinRepetidos = articulo.removeDuplicadosArticulo(ListaArticulo);
+                    string categoria = Request.QueryString["categoriaArt"].ToString();
+                    List<Articulo> ListaSinRepetidos = articulo.removeDuplicadosArticulo(articulo.Buscar(categoria, "IdCategoria"));
+                    repArticulos.DataSource = ListaSinRepetidos;
+                    repArticulos.DataBind();
+                }
+
+                if (Request.QueryString.AllKeys.Contains("marcaArt"))
+                {
+                    string marca = Request.QueryString["marcaArt"].ToString();
+                    List<Articulo> ListaSinRepetidos = articulo.removeDuplicadosArticulo(articulo.Buscar(marca, "IdMarca"));
+                    repArticulos.DataSource = ListaSinRepetidos;
+                    repArticulos.DataBind();
+                }           
+
+                if (!Request.QueryString.AllKeys.Contains("marcaArt") && !Request.QueryString.AllKeys.Contains("categoriaArt"))
+                {
+                    List<Articulo> ListaSinRepetidos = articulo.removeDuplicadosArticulo(articulo.listar());
                     repArticulos.DataSource = ListaSinRepetidos;
                     repArticulos.DataBind();
                 }

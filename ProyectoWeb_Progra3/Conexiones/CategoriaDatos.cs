@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Clases;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Clases;
 
 namespace Conexiones
 {
@@ -83,6 +80,21 @@ namespace Conexiones
                 return isWrongType;
             }
             else return true;
+        }
+
+        public List<Categoria> removeDuplicadosCategoria(List<Categoria> inputList)
+        {
+            Dictionary<string, string> uniqueStore = new Dictionary<string, string>();
+            List<Categoria> finalList = new List<Categoria>();
+            foreach (Categoria cat in inputList)
+            {
+                if (!uniqueStore.ContainsKey(cat.Descripcion))
+                {
+                    uniqueStore.Add(cat.Descripcion, "0");
+                    finalList.Add(cat);
+                }
+            }
+            return finalList;
         }
 
     }

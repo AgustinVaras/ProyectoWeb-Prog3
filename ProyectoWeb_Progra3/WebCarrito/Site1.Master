@@ -46,7 +46,7 @@
                                  <span>
                                     <asp:Label ID="lblContador" CssClass="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" O OnLoad="lblContador_Load" Text="" runat="server"></asp:Label>
                                  </span>
-                                   <%/*Muestra un icono distinto dependiendo si el carro tiene algo o no*/
+                                   <%
                                        if (Session["articulosAgregados"] == null) 
                                       { %>
                                          <i class="bi bi-cart"></i>

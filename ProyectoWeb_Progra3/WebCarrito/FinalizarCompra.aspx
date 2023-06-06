@@ -44,33 +44,66 @@
 </style>
 
 
+ <%if (Session["articulosAgregados"] != null)
+     { %>
 <body>
- 
+    <asp:Repeater ID="repArticulos" OnItemDataBound="repImagenes_ItemDataBound" runat="server">
+        <ItemTemplate>
 
-<hr style="color: white; background-color: white; width:75%;" />
+                     <hr style="color: white; background-color: white; width: 75%;" />
 
-<div id="container">
+            <div id="container">
 
-  <div>
-      <img src="https://t2.ea.ltmcdn.com/es/posts/7/4/3/como_ayudar_a_un_gatito_a_defecar_20347_orig.jpg" alt="Imagen" />
-  </div>
-  <div>
-       <center>
-      <div>
-          <h5>Aca va el nombre</h5>
-      </div>
-       </center> 
-      <div>
-          <div>
-          <ul>
-              <li>descripcion aca</li>
-              <li>codigo aca</li>
-          </ul>
-          </div>
-      </div>
-      <h6>Precio:</h6>
-  </div>
-</div>
-<hr style="color: white; background-color: white; width:75%;" />
-</body>
+                <asp:Repeater ID="repImagenes" runat="server">
+                    <ItemTemplate>
+                <div>
+                    <img src="<%#Eval("ImagenUrl") %>" alt="Imagen" />
+                </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <div>
+                    <center>
+                        <div>
+                            <h5><%#Eval("Nombre")%></h5>
+                        </div>
+                    </center>
+                    <div>
+                        <div>
+                            <ul>
+                                <li><%#Eval("Descripcion")%></li>
+                                <li><%#Eval("Codigo")%></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h6><%#Eval("Precio")%></h6>
+                </div>
+            </div>
+            <hr style="color: white; background-color: white; width: 75%;" />
+
+        </ItemTemplate>
+    </asp:Repeater>
+                    
+
+    <div>
+
+
+        <asp:Label ID="PrecioFinal" runat="server" Text="Precion Final">  </asp:Label>
+    </div>
+          
+               
+
+
+
+    </body>
+
+    
+    <%}
+        else
+        { %>
+
+    <h2>No hay productos</h2>
+
+    <%} %>
+
+
 </asp:Content>

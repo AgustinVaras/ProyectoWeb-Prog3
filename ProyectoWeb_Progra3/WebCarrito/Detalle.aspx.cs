@@ -13,11 +13,12 @@ namespace WebCarrito
     {
         public List<Articulo> ListaArticulo { get; set; }
         public List<Imagen> ListaImagen { get; set; }
-       
+
+        public List<Articulo> ListaCarrito = new List<Articulo>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Request.QueryString["cod"] != null)
+            if (Request.QueryString.AllKeys.Contains("cod"))
             {
                 string codigo = Request.QueryString["cod"].ToString();
 
@@ -25,11 +26,33 @@ namespace WebCarrito
                 ListaArticulo = articulo.Buscar(codigo, "Codigo");
                 ImagenesDatos imagen = new ImagenesDatos();
                 ListaImagen = imagen.Listar();
+            }
+            else
+            {
+                Response.Redirect("/");
+            }
+        }
 
-                /*DatosDeArticulos articulo = new DatosDeArticulos();
-                Producto = articulo.listarArticulo(ID);
-                ImagenesDatos imagen = new ImagenesDatos();
-                ListaImagen = imagen.Listar();*/
+        protected void btnAgregarACarrito_Click(object sender, EventArgs e)
+        {
+            string codigo = Request.QueryString["cod"];
+
+            DatosDeArticulos articulos = new DatosDeArticulos();
+            ListaArticulo = articulos.Buscar(codigo, "Codigo");
+
+            if (ListaArticulo != null)
+            {
+                if (Session["articulosAgregados"] == null)
+                {
+                    ListaCarrito.Add(ListaArticulo.First());
+                    Session.Add("articulosAgregados", ListaCarrito);
+                }
+                else
+                {
+                    ListaCarrito = (List<Articulo>)Session["articulosAgregados"];
+                    ListaCarrito.Add(ListaArticulo.First());
+                    Session.Add("articulosAgregados", ListaCarrito);
+                }
             }
         }
     }

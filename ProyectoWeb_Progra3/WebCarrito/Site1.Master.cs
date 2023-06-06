@@ -11,9 +11,7 @@ namespace WebCarrito
 {
     public partial class Site1 : System.Web.UI.MasterPage
     {
-        public Carrito Carro { get; private set; }
-        public List<Imagen> ListaImagen { get; set; }
-
+        public Carrito Carro { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             CategoriaDatos categoriaDatos = new CategoriaDatos();
@@ -37,8 +35,6 @@ namespace WebCarrito
             if (Session["articulosAgregados"] != null)
             {
                 Carro.Articulos = (List<Articulo>)Session["articulosAgregados"];
-                ImagenesDatos imagen = new ImagenesDatos();
-                ListaImagen = imagen.Listar();
             }
         }
 

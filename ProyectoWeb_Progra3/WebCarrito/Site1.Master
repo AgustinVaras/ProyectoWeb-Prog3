@@ -42,8 +42,10 @@
                     <div>
                         <ul class="nav navbar-nav navbar-right ">
                             <li class="dropdown">
-                                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
-                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="contador"></span>
+                                <a href="FinalizarCompra.aspx" class="btn btn-light">
+                                 <span>
+                                    <asp:Label ID="lblContador" CssClass="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" O OnLoad="lblContador_Load" Text="" runat="server"></asp:Label>
+                                 </span>
                                    <%/*Muestra un icono distinto dependiendo si el carro tiene algo o no*/
                                        if (Session["articulosAgregados"] == null) 
                                       { %>
@@ -52,15 +54,8 @@
                                    <% else
                                       { %>
                                         <i class="bi bi-cart-fill"></i>
-                                                 <script>
-
-                                                     var contadorElemento = document.getElementById("contador");
-
-                                                     contadorElemento.innerHTML += 1;
-
-                                             </script>
                                    <% } %>
-                                </button>
+                                </a>
                             </li>
                         </ul>
 

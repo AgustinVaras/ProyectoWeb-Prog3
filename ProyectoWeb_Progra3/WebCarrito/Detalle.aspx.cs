@@ -46,12 +46,14 @@ namespace WebCarrito
                 {
                     ListaCarrito.Add(ListaArticulo.First());
                     Session.Add("articulosAgregados", ListaCarrito);
+                    Response.Redirect("Detalle.aspx?cod=" + codigo);
                 }
                 else
                 {
                     ListaCarrito = (List<Articulo>)Session["articulosAgregados"];
                     ListaCarrito.Add(ListaArticulo.First());
                     Session.Add("articulosAgregados", ListaCarrito);
+                    Response.Redirect("Detalle.aspx?cod=" + codigo);
                 }
             }
         }

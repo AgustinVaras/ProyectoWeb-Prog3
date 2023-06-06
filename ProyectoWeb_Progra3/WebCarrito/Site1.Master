@@ -44,8 +44,8 @@
                             <li class="dropdown">
                                 <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="contador"></span>
-                                   <% /*Muestra un icono distinto dependiendo si el carro tiene algo o no*/
-                                      if (Session["articulosAgregados"] == null) 
+                                   <%/*Muestra un icono distinto dependiendo si el carro tiene algo o no*/
+                                       if (Session["articulosAgregados"] == null) 
                                       { %>
                                          <i class="bi bi-cart"></i>
                                    <% } %>

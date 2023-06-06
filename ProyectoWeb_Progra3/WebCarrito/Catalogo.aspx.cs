@@ -81,13 +81,15 @@ namespace WebCarrito
                 if (Session["articulosAgregados"] == null)
                 {                    
                     ListaCarrito.Add(ListaArticulo.First());
-                    Session.Add("articulosAgregados", ListaCarrito);                    
+                    Session.Add("articulosAgregados", ListaCarrito);
+                    Response.Redirect("Catalogo.aspx");
                 }
                 else
                 {
                     ListaCarrito = (List <Articulo>)Session["articulosAgregados"];
                     ListaCarrito.Add(ListaArticulo.First());
                     Session.Add("articulosAgregados", ListaCarrito);
+                    Response.Redirect("Catalogo.aspx");
                 }              
             }
         }

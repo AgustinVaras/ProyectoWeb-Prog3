@@ -84,7 +84,11 @@
     </asp:Repeater>
                     
 
+    <div>
 
+
+        <asp:Label ID="PrecioFinal" runat="server" Text="Precion Final">  </asp:Label>
+    </div>
           
                
 

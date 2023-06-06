@@ -12,6 +12,7 @@ namespace WebCarrito
     public partial class FinalizarCompra : System.Web.UI.Page
     {
 
+        public Carrito Carro { get; set; }
         public List<Articulo> ListaArticulo { get; set; }
 
         public List<Imagen> ListaImagen { get; set; }
@@ -19,12 +20,21 @@ namespace WebCarrito
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            DatosDeArticulos articulo = new DatosDeArticulos();
-
-            List<Articulo> Lista = (List<Articulo>)Session["articulosAgregados"];
-            repArticulos.DataSource = Lista;
+            Carro = new Carrito();
+            
+            Carro.Articulos = (List<Articulo>)Session["articulosAgregados"];
+            repArticulos.DataSource = Carro.Articulos;
             repArticulos.DataBind();
+
+            if(Session["articulosAgregados"] != null)
+            {
+
+            decimal Monto = Carro.CalcularMonto();
+
+            PrecioFinal.Text = Monto.ToString();
+
+            }
+
 
         }
 

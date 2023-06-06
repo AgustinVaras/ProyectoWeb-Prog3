@@ -45,6 +45,44 @@ namespace Conexiones
             }                               
         }
 
+        public List<Articulo> listar2(string ID)
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoSQL Datos = new AccesoSQL();
+
+            try
+            {
+                Datos.Consulta("Select A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio , C.Id Categoria, M.Id Marca From ARTICULOS A  Inner Join MARCAS M on A.IdMarca = M.Id Inner Join CATEGORIAS C on A.IdCategoria = C.Id where a.Id = " + ID);
+                Datos.EjecutarLectura();
+
+                while (Datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.Id = (int)Datos.Lector["Id"];
+                    aux.IdCategoria = (int)Datos.Lector["Categoria"];
+                    aux.IdMarca = (int)Datos.Lector["Marca"];
+                    aux.Codigo = (string)Datos.Lector["Codigo"];
+                    aux.Nombre = (string)Datos.Lector["Nombre"];
+                    aux.Descripcion = (string)Datos.Lector["Descripcion"];
+                    aux.Precio = Decimal.Round((decimal)Datos.Lector["Precio"], 2);
+                    /*aux.Descripcionm = (string)Datos.Lector["M.Descripcion"];
+                    aux.Descripcionc = (string)Datos.Lector["C.Descripcion,"];*/
+
+
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Datos.CerrarConexion();
+            }
+        }
+
         public void Agregar(Articulo nuevo)
         {
             AccesoSQL datos = new AccesoSQL();
@@ -181,6 +219,19 @@ namespace Conexiones
             
         }
 
-
+        public List<Articulo> removeDuplicadosArticulo(List<Articulo> inputList)
+        {
+            Dictionary<string, string> uniqueStore = new Dictionary<string, string>();
+            List<Articulo> finalList = new List<Articulo>();
+            foreach (Articulo art in inputList)
+            {
+                if (!uniqueStore.ContainsKey(art.Codigo))
+                {
+                    uniqueStore.Add(art.Codigo, "0");
+                    finalList.Add(art);
+                }
+            }
+            return finalList;
+        }
     }
 }

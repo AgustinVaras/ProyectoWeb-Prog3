@@ -1,6 +1,19 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebCarrito.Site1" %>
+﻿﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebCarrito.Site1" %>
 
 <!DOCTYPE html>
+
+<style>
+        body
+        {
+
+            
+
+        }
+
+
+</style>
+
+
 
 <html>
 <head runat="server">
@@ -8,53 +21,180 @@
     <title>Actividad 4 - Carrito</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <%--links a bootstrap online--%>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <%--Iconos de bootstrap--%>
+
+    <%-- links a stylesheets locales --%>
+    <link href="./content/Carrito.css" rel="stylesheet" />
+
 </head>
-<body>
+<body class="bg-dark text-white">
     <form id="form1" runat="server">
-        <div>
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Navbar</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <nav class="navbar navbar-expand-lg bg-body-dark">
+            <div class="container-fluid">
+                <a class="btn btn-light mx-3" data-bs-toggle="offcanvas" href="#contenedor" role="button" aria-controls="offcanvasExample" >
+                     <span class="navbar-toggler-icon"></span>
+                </a>
+                <div class="collapse navbar-collapse" id="NavbarContenido">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="fw-bolder nav-link text-white" href="/">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="fw-bolder nav-link text-white" href="Catalogo.aspx">Tienda</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <asp:DropDownList runat="server" ID="ddlCategorias" CssClass="btn btn-dark dropdown-toggle fw-bolder" AutoPostBack="true" OnSelectedIndexChanged="ddlCategorias_SelectedIndexChanged">
+                                <asp:ListItem Text="Categorías">Categorías</asp:ListItem>
+                            </asp:DropDownList>
+                        </li>
+                    </ul>
+                     <%-- Buscador --%>
+                    <div class="d-flex" role="search">
+                        <div class="opacity-50 me-2">
+                            <input class="form-control me-4" type="search" placeholder="Que estas buscando?" aria-labe="">
+                        </div>
+                        <button class="fw-bolder btn btn-outline-light" type="submit">Buscar</button>
+                    </div>
+                    <%-- Carrito --%>
+                    <div>
+                        <ul class="nav navbar-nav navbar-right ">
+                            <li class="dropdown">
+                                <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                   <% /*Muestra un icono distinto dependiendo si el carro tiene algo o no*/
+                                      if (Session["articulosAgregados"] == null) 
+                                      { %>
+                                        <i class="bi bi-cart"></i>
+                                   <% } %>
+                                   <% else
+                                      { %>
+                                        <i class="bi bi-cart-fill"></i>
+                                   <% } %>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-lg-start position-absolute dropdown-cart " role="menu">
+                                        <%--Valido que el carrito tenga o no articulos --%>
+                                        <% if (Session["articulosAgregados"] == null)
+                                           { %>
+                                            <li><h6 class="dropdown-header">Todavía no agregó Articulos</h6></li>
+                                        <% }
+                                        else
+                                        {
+                                            foreach (Clases.Articulo art in Carro.Articulos)
+                                            { %>
+                                            <li>
+                                                <a class="dropdown-item" href="Detalle.aspx?cod=<%: art.Codigo %>">
+                                                    <div class="item">
+                                                        <div class="item-left">
+                                                            <img src="http://www.prepbootstrap.com/Content/images/template/menucartdropdown/item_1.jpg" alt="" />
+                                                            <div class="mb-3">
+                                                                <label class="form-label"><%: art.Nombre %></label>
+                                                                <label class="form-label"> Precio: $<%: art.Precio %></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="item-right">
+                                                            <button class="btn btn-danger fa fa-close"></button>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                          <%}
+                                        } %>
+                                    
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled">Disabled</a>
-                            </li>
                         </ul>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+
                     </div>
                 </div>
-            </nav>
+            </div>
+        </nav>
+        <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="contenedor" aria-labelledby="offcanvasCatalogo">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title text-white" id="offcanvasCatalogo">Catálogo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+               <div class="container-fluid">
+                <div class="row mb-4">
+                    <div class="col-sm-3">
+                        <p class="fw-bolder text-white h5 mb-3">Categorias</p>
+                        <asp:Repeater ID="repCategorias" runat="server">
+                            <ItemTemplate>
+                                <div class="opacity-90">
+                                    <ul class="list-unstyled mb-1">
+                                        <li><a class="text-white text-decoration-none" href="Catalogo.aspx?categoriaArt=<%#Eval("Id") %>"><%#Eval("Descripcion") %></a></li>
+                                    </ul>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                </div>
+                   <div class="row">
+                       <div class="col-sm-3">
+                           <p class="fw-bolder text-white h5 mb-3">Marcas</p>
+                           <asp:Repeater ID="repMarcas" runat="server">
+                               <ItemTemplate>
+                                   <div class="opacity-90">
+                                       <ul class="list-unstyled mb-1">
+                                           <li><a class="text-white text-decoration-none" href="Catalogo.aspx?marcaArt=<%#Eval("Id") %>"><%#Eval("Descripcion") %></a></li>
+                                       </ul>
+                                   </div>
+                               </ItemTemplate>
+                           </asp:Repeater>
+                       </div>
+                   </div>
+                   </div>
+               </div>
+            </div>
+        <div class="container body-content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-            <footer>
+            <footer">
                 <hr />
-                Footer..................
+                <div class="container-fluid">
+                    <div class="row p-3 bg-dark text-white">
+                        <div class="col-lg-3">
+                            <p class="fw-bolder h2">Proyecto web</p>
+                        </div>
+                        <div class="col-lg-3">
+                            <p class="fw-bolder h5">Medios de pago</p>
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png" alt="Visa" width="60" height="40" />
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png" alt="mastercard" width="60" height="40" />
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png" alt="Amex" width="60" height="40" />
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/pagofacil@2x.png" alt="Pagofacil" width="60" height="40" />
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/rapipago@2x.png" alt="Rapipago" width="60" height="40" />
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visadebit@2x.png" alt="Visadebito" width="60" height="40" />
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mercadopago@2x.png" alt="Mercadopago" width="60" height="40" />
+                            <img src="https://d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/santander@2x.png" alt="Santander" width="60" height="40" />
+                        </div>
+                        <div class="col-lg-3">
+                            <p class="fw-bolder h5">Contactanos</p>
+                            <div class="mb-2">
+                                <h6>47158212</h6>
+                            </div>
+                            <div class="mb-2">
+                                <h6>11328291245</h6>
+                            </div>
+                            <div class="mb-2">
+                                <h6>Contacto@Gmail.com</h6>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <p class="fw-bolder h5">Redes Sociales</p>
+                            <div class="mb-2">
+                                <a class="text-decoration-none" href="#">Facebook</a>
+                            </div>
+                            <div class="mb-2">
+                                <a class="text-decoration-none" href="#">Instagram</a>
+                            </div>
+                            <div class="mb-2">
+                                <a class="text-decoration-none" href="#">Twitter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </footer>
         </div>
     </form>

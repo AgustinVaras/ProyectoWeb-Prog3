@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCarrito", "WebCarrito\WebCarrito.csproj", "{7C71A19D-115D-40A1-A791-F5182EC21B52}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clases", "Clases\Clases.csproj", "{B317C4D8-4032-4DEB-91CD-AF9B536A7536}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conexiones", "Conexiones\Conexiones.csproj", "{F1D355D1-481B-4532-AA2E-84302C39CA3B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{7C71A19D-115D-40A1-A791-F5182EC21B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C71A19D-115D-40A1-A791-F5182EC21B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C71A19D-115D-40A1-A791-F5182EC21B52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B317C4D8-4032-4DEB-91CD-AF9B536A7536}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B317C4D8-4032-4DEB-91CD-AF9B536A7536}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B317C4D8-4032-4DEB-91CD-AF9B536A7536}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B317C4D8-4032-4DEB-91CD-AF9B536A7536}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1D355D1-481B-4532-AA2E-84302C39CA3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D355D1-481B-4532-AA2E-84302C39CA3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D355D1-481B-4532-AA2E-84302C39CA3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D355D1-481B-4532-AA2E-84302C39CA3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

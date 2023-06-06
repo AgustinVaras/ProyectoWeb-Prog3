@@ -9,15 +9,17 @@ namespace Clases
     public class Articulo
     {
         //Constructor
-        public Articulo(int id, int idMarca, int idCategoria, decimal precio, string nombre, string descripcion, string codigo)
+        public Articulo(int id, int idMarca, int idCategoria, decimal precio, string nombre, string descripcion, string descripcionC, string codigo, string descripcionM)
         {
             this.id = id;
             this.idMarca = idMarca;
+            this.descripcionM = descripcionM;
             this.idCategoria = idCategoria;
             this.precio = precio;
             this.nombre = nombre;
             this.descripcion = descripcion;
             this.codigo = codigo;
+            this.descripcionC = descripcionC;
         }
         //Constructor vacio
         public Articulo()
@@ -32,9 +34,26 @@ namespace Clases
         private decimal precio;
         private int idMarca;
         private int idCategoria;
+        private string descripcionM;
         private string codigo;
+        private string descripcionC;
+
 
         //Propiedades set & get
+       
+        public string Descripcionm
+        {
+            get { return descripcionM; } 
+            set { descripcionM = value;  }
+        }
+        
+        public string Descripcionc 
+        {
+            get { return descripcionC;} 
+            set { descripcionC = value; } 
+        }
+
+
         public int Id
         {
             get { return id; }
@@ -67,6 +86,7 @@ namespace Clases
             set { descripcion = value; }
         }
 
+        
         public string Codigo 
         {
             get { return codigo; }

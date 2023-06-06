@@ -29,19 +29,22 @@ namespace WebCarrito
                 repMarcas.DataSource = marcaDatos.removeDuplicadosMarca(marcaDatos.Listar());
                 repMarcas.DataBind();
             }
-
-
-            Carro = new Carrito();
-            if (Session["articulosAgregados"] != null)
-            {
-                Carro.Articulos = (List<Articulo>)Session["articulosAgregados"];
-            }
         }
 
         protected void ddlCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
             int id = int.Parse(ddlCategorias.SelectedValue);
             Response.Redirect("Catalogo.aspx?categoriaArt=" + id, false);
+        }
+
+        protected void lblContador_Load(object sender, EventArgs e)
+        {
+            Carro = new Carrito();
+            if (Session["articulosAgregados"] != null)
+            {
+                Carro.Articulos = (List<Articulo>)Session["articulosAgregados"];
+                lblContador.Text = Carro.Articulos.Count().ToString();
+            }
         }
     }
 }

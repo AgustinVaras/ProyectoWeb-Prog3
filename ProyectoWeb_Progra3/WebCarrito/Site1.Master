@@ -2,19 +2,6 @@
 
 <!DOCTYPE html>
 
-<style>
-        body
-        {
-
-            
-
-        }
-
-
-</style>
-
-
-
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -51,58 +38,29 @@
                             </asp:DropDownList>
                         </li>
                     </ul>
-                     <%-- Buscador --%>
-                    <div class="d-flex" role="search">
-                        <div class="opacity-50 me-2">
-                            <input class="form-control me-4" type="search" placeholder="Que estas buscando?" aria-labe="">
-                        </div>
-                        <button class="fw-bolder btn btn-outline-light" type="submit">Buscar</button>
-                    </div>
                     <%-- Carrito --%>
                     <div>
                         <ul class="nav navbar-nav navbar-right ">
                             <li class="dropdown">
                                 <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="contador"></span>
                                    <% /*Muestra un icono distinto dependiendo si el carro tiene algo o no*/
                                       if (Session["articulosAgregados"] == null) 
                                       { %>
-                                        <i class="bi bi-cart"></i>
+                                         <i class="bi bi-cart"></i>
                                    <% } %>
                                    <% else
                                       { %>
                                         <i class="bi bi-cart-fill"></i>
+                                                 <script>
+
+                                                     var contadorElemento = document.getElementById("contador");
+
+                                                     contadorElemento.innerHTML += 1;
+
+                                             </script>
                                    <% } %>
                                 </button>
-                                <ul class="dropdown-menu dropdown-menu-end dropdown-lg-start position-absolute dropdown-cart " role="menu">
-                                        <%--Valido que el carrito tenga o no articulos --%>
-                                        <% if (Session["articulosAgregados"] == null)
-                                           { %>
-                                            <li><h6 class="dropdown-header">Todavía no agregó Articulos</h6></li>
-                                        <% }
-                                        else
-                                        {
-                                            foreach (Clases.Articulo art in Carro.Articulos)
-                                            { %>
-                                            <li>
-                                                <a class="dropdown-item" href="Detalle.aspx?cod=<%: art.Codigo %>">
-                                                    <div class="item">
-                                                        <div class="item-left">
-                                                            <img src="http://www.prepbootstrap.com/Content/images/template/menucartdropdown/item_1.jpg" alt="" />
-                                                            <div class="mb-3">
-                                                                <label class="form-label"><%: art.Nombre %></label>
-                                                                <label class="form-label"> Precio: $<%: art.Precio %></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="item-right">
-                                                            <button class="btn btn-danger fa fa-close"></button>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                          <%}
-                                        } %>
-                                    
-                                </ul>
                             </li>
                         </ul>
 

@@ -87,7 +87,12 @@
     <div>
 
 
-        <asp:Label ID="PrecioFinal" runat="server" Text="Precion Final">  </asp:Label>
+        
+        <h5>Total a pagar: $
+                <asp:Label ID="PrecioFinal" runat="server" Text="Precion Final"> Total a pagar </asp:Label>
+        </h5>   
+    
+    
     </div>
           
                
